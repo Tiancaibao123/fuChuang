@@ -9,7 +9,8 @@ Page({
     errorMsg:'',
     phoneNum:'',
     password:'',
-    pswErrMsg:''
+    pswErrMsg:'',
+    list:[]
   },
 
   onChange(event) {
@@ -21,6 +22,7 @@ Page({
     // console.log(this.data.phoneNum)
     // console.log(this.data.errorMsg)
     // 判断手机号是否有误
+    var flag = false
     if (!this.data.phoneNum){
       this.setData({
         errorMsg:'手机号不能为空！'
@@ -34,7 +36,6 @@ Page({
       errorMsg:''
     })
       }
-
     // 判断密码格式
     if(!this.data.password){
       this.setData({
@@ -43,6 +44,25 @@ Page({
     }else{
       this.setData({
         pswErrMsg:''
+      })
+      flag = true
+    }
+    if(flag){
+      wx.request({
+        url: 'https://holer64006.wdom.net/',
+        method:"POST",
+        data:{
+          phone:this.data.phoneNum,
+          password:this.data.password
+        },
+        //成功回调函数
+        success:(res)=>{
+          console.log(res)
+          list = res.data.data
+          this.setData({
+            list:list
+          })
+        }
       })
     }
 },
