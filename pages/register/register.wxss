@@ -1,0 +1,15 @@
+/* pages/register/register.wxss */
+.title {
+  text-align: center;
+}
+
+.reg-button {
+  margin-top:10px;
+  text-align: center;
+}
+
+.psw-tip {
+  font-size: 12px;
+  color: #999;
+  margin-left: 100px;
+}

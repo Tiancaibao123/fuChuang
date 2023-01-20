@@ -1,0 +1,12 @@
+/* pages/login/login.wxss */
+.container1 {
+  display:flex;
+  justify-content: center;
+}
+
+#login-button {
+  margin-right: 20px;
+}
+#reg-button {
+  margin-left: 20px;
+}

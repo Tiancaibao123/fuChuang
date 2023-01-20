@@ -1,0 +1,38 @@
+<!--pages/login/login.wxml-->
+<!-- 登录表单 -->
+<van-cell-group>
+  <van-field
+    model:value="{{ phoneNum }}"
+    required
+    clearable
+    label="手机号"
+    placeholder="请输入手机号"
+    error-message="{{errorMsg}}"
+  />
+
+  <van-field
+    model:value="{{ password }}"
+    type="password"
+    label="密码"
+    placeholder="请输入密码"
+    required
+    border="{{ false }}"
+    error-message="{{pswErrMsg}}"
+  />
+</van-cell-group>
+
+<!-- 两个按钮 -->
+<view class="container1">
+<van-button type="primary" bindtap="onlogin" id="login-button">登录</van-button>
+<van-button type="primary" bindtap="onregister" id="reg-button">注册</van-button>
+</view>
+
+
+
+
+
+
+
+
+
+
