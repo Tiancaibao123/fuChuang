@@ -19,6 +19,7 @@ Page({
   },
   //  登录按钮
   onlogin(e){
+    console.log('1')
     // console.log(this.data.phoneNum)
     // console.log(this.data.errorMsg)
     // 判断手机号是否有误
@@ -58,7 +59,7 @@ Page({
         //成功回调函数
         success:(res)=>{
           console.log(res)
-          list = res.data.data
+          var list = res.data.data
           this.setData({
             list:list
           })
