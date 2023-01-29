@@ -20,23 +20,9 @@
     border="{{ false }}"
     error-message="{{pswErrorMsg}}"
   />
-  <view class="psw-tip">密码格式为数字和26个英文字母组成</view>
+  <view class="psw-tip">密码格式由6~12位数字和字母组成</view>
   <!-- 短信验证 -->
-  <van-cell-group>
-  <van-field
-    value="{{ sms }}"
-    center
-    clearable
-    label="短信验证码"
-    placeholder="请输入短信验证码"
-    border="{{ false }}"
-    use-button-slot
-  >
-    <van-button slot="button" size="small" type="primary">
-      发送验证码
-    </van-button>
-  </van-field>
-</van-cell-group>
+
 
 </van-cell-group>
 

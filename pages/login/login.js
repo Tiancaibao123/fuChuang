@@ -7,8 +7,8 @@ Page({
   data: {
     value: '',
     errorMsg:'',
-    phoneNum:'',
-    password:'',
+    phoneNum:'18113969569',
+    password:'123456',
     pswErrMsg:'',
     list:[]
   },
@@ -19,11 +19,12 @@ Page({
   },
   //  登录按钮
   onlogin(e){
-    console.log('1')
+  
     // console.log(this.data.phoneNum)
     // console.log(this.data.errorMsg)
     // 判断手机号是否有误
-    var flag = false
+    var flag1 = false
+    var flag2 = false
     if (!this.data.phoneNum){
       this.setData({
         errorMsg:'手机号不能为空！'
@@ -36,6 +37,7 @@ Page({
     this.setData({
       errorMsg:''
     })
+    flag1 = true
       }
     // 判断密码格式
     if(!this.data.password){
@@ -46,23 +48,29 @@ Page({
       this.setData({
         pswErrMsg:''
       })
-      flag = true
+      flag2 = true
     }
-    if(flag){
+    if(flag1&&flag2){
       wx.request({
-        url: 'https://holer64006.wdom.net/',
+        url: 'https://holer64006.wdom.net/wx/user/login',
         method:"POST",
         data:{
-          phone:this.data.phoneNum,
-          password:this.data.password
+          "phone":this.data.phoneNum,
+          "password":this.data.password
+        },
+        header:{
+          "Content-Type": 'application/x-www-form-urlencoded'
         },
         //成功回调函数
         success:(res)=>{
           console.log(res)
-          var list = res.data.data
-          this.setData({
-            list:list
-          })
+          // var list1 = res.data.data
+          // this.setData({
+          //   list:list1
+          // })
+          if(res.data.success===false){
+            console.log('该手机号未注册')
+          }
         }
       })
     }

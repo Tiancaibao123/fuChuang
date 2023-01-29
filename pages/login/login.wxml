@@ -8,6 +8,7 @@
     label="手机号"
     placeholder="请输入手机号"
     error-message="{{errorMsg}}"
+    class="phoneLeft"
   />
 
   <van-field

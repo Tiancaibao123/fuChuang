@@ -9,7 +9,7 @@
 }
 
 .psw-tip {
-  font-size: 12px;
+  font-size: 16px;
   color: #999;
   margin-left: 100px;
 }

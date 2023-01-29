@@ -1,0 +1,4 @@
+/* pages/ocr1/ocr1.wxss */
+.title {
+  text-align: center;
+}

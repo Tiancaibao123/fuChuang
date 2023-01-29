@@ -5,12 +5,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    phoneNum:'',
-    password:'',
+    phoneNum:'18111111111',
+    password:'123456',
     phoErrorMsg:'',
     pswErrorMsg:''
   },
   onRegister(){
+    var flag1 = false
+    var flag2 = false
     //检查手机号格式
     if(!this.data.phoneNum){
       this.setData({
@@ -24,19 +26,42 @@ Page({
       this.setData({
         phoErrorMsg:''
       })
+      flag1 = true
     }
     // 检查密码
     if(!this.data.password){
       this.setData({
         pswErrorMsg:'密码不能为空！'
       })
-    }else if(!(/^[A-Za-z0-9]+$/.test(this.data.password))){
+    }else if(!(/^[A-Za-z0-9]{6,20}$/.test(this.data.password))){
       this.setData({
         pswErrorMsg:'密码格式有误！'
       })
     }else {
       this.setData({
         pswErrorMsg:''
+      })
+      flag2 = true
+    }
+    if(flag1&&flag2){
+      wx.request({
+        url: 'https://holer64006.wdom.net/wx/user/regist',
+        method:"POST",
+        data:{
+          "phone":this.data.phoneNum,
+          "password":this.data.password
+        },
+        header:{
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        //成功回调函数
+        success:(res)=>{
+          console.log(res)
+          // var list = res.data.data
+          // this.setData({
+          //   list:list
+          // })
+        }
       })
     }
   },

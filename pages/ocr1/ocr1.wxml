@@ -1,0 +1,6 @@
+<!--pages/ocr1/ocr1.wxml-->
+<view class="title">OCR录入</view>
+<!-- <van-uploader file-list="{{ fileList }}" bind:after-read="afterRead" /> -->
+<van-uploader file-list="{{ fileList }}" bind:after-read="afterRead" />
+
+
